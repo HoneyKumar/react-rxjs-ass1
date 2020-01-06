@@ -11,10 +11,14 @@ interface State{
     message : string
 }
 
+interface Props{
+
+}
+
 let selectCallStream = new Subject();
 let errorStream =new Subject();
 let messageStream = new Subject();
-class Home extends React.Component<State>{
+class Home extends React.Component<State,Props>{
 
     state:State ={
         previousSelectedValue : '',
@@ -28,6 +32,14 @@ class Home extends React.Component<State>{
         this.initializeSelectStream();
         this.initializeErrorStream();
         this.initializeMessageStream();
+    }
+    shouldComponentUpdate(nextProps:Props, nextState:State) {
+        return this.state.currentSelectedValue !== nextState.currentSelectedValue;
+    }
+    componentWillUnmount(){
+        selectCallStream.unsubscribe();
+        errorStream.unsubscribe();
+        messageStream.unsubscribe();
     }
     initializeSelectStream = ()=>{
         
