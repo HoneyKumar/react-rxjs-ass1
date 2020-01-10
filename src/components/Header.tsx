@@ -21,6 +21,9 @@ function Header(){
             <Link className="nav_menu" to="/login">
                 Login
             </Link>
+            <Link className="nav_menu" to="/autocomplete">
+                Autocomplete
+            </Link>
         </div>
         {/* Navbar Ends */}
         </React.Fragment>
