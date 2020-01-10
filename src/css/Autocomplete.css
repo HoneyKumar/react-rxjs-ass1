@@ -7,6 +7,9 @@
 .inputSearch{
   width: 30%;
   padding:10px;
+  border-radius: 5px;  
+  border: 1px solid #d4d4d4;
+
 }
 .autocomplete-items{
   display:block;
@@ -26,12 +29,13 @@
   background-color: #fff;
 
 }
+
 .close-icon{
+  position: relative;
   border:1px solid transparent;
   background-color: transparent;
   cursor: pointer;
-
-    margin-left: -28px; 
+  margin-left: -28px; 
 
 }
 .close-icon:after {
