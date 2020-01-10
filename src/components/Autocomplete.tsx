@@ -67,7 +67,7 @@ class Autocomplete extends React.Component<State,Props>{
     }
 
     handleOnClick = (e:any)=>{
-        let val:any = e.target.dataset.val; 
+        let val:any = e.target.dataset.val;
         this.setState({searchText : val,searchItems : []},()=>{
             searchStream.next(val)
         })
@@ -76,9 +76,9 @@ class Autocomplete extends React.Component<State,Props>{
     renderList(){
         return (
             this.state.searchItems.map((item,index)=>{
-               return (<div key={index} >
-                    <strong data-val={item.value}>{item.value}</strong>
-                    <input type="hidden"  value={item.value}  />
+               return (<div className="search-item-list" key={index} data-val={item.value} onClick={this.handleOnClick}>
+                    {item.value}
+                    
                 </div>
                )
             }
@@ -90,18 +90,17 @@ class Autocomplete extends React.Component<State,Props>{
         this.setState({searchText : '',searchItems : []});
     }
     render(){
-        console.log(this.state.searchItems);
         return(
             <div className="dropdown">
                 <div className="autocomplete">
-                        <input type="text" placeholder="Search.." id="searchBox" value={this.state.searchText} onChange={this.handleOnchange} autoComplete="off" />
+                        <input type="text" className="inputSearch" placeholder="Search.." id="searchBox" value={this.state.searchText} onChange={this.handleOnchange} autoComplete="off" />
                         <button className="close-icon" type="reset" onClick={this.handleReset}></button>
                         {
                             this.state.searchText.length <=2 ? <div className="error-message">
                                 Please Type Atleast 3 chracter
                             </div>
                               : (
-                                this.state.searchItems.length > 0 ? <div id="myInputautocomplete-list" className="autocomplete-items" onClick={this.handleOnClick}>{this.renderList() }</div> : this.state.searchText.length > 2 &&<div className="error-message">No Result Found</div>
+                                this.state.searchItems.length > 0 ? <div id="myInputautocomplete-list" className="autocomplete-items" >{this.renderList() }</div> : this.state.searchText.length > 2 &&<div className="error-message">No Result Found</div>
                               )
                               
                              
