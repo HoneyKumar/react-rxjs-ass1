@@ -9,6 +9,7 @@
   padding:10px;
   border-radius: 5px;  
   border: 1px solid #d4d4d4;
+  height:30px;
 
 }
 .autocomplete-items{
@@ -19,6 +20,7 @@
   width: 30%;
   height:150px;
   overflow:scroll;
+  padding: 10px;
  
 }
 
