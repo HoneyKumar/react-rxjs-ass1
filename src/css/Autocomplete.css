@@ -9,10 +9,14 @@
   padding:10px;
 }
 .autocomplete-items{
+  display:block;
   border : 1px solid #d4d4d4;
   border-top: none;
   border-bottom: none;
   width: 30%;
+  height:150px;
+  overflow:scroll;
+ 
 }
 
 .autocomplete-items div{
@@ -44,3 +48,4 @@
   color: red;
   font-size: 8px;
 }
+
